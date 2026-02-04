@@ -1,13 +1,14 @@
 import { motion } from "motion/react";
 export default function ProgressBar({ step }: { step: number }) {
+  const noOfSteps = 4;
   return (
     <div className="mb-12">
       <div className="flex justify-between items-center mb-2">
-        {[1, 2, 3, 4].map((i) => (
+        {Array.from({ length: noOfSteps }).map((_, i) => (
           <div key={i} className="flex items-center flex-1 last:flex-none">
             <motion.div
               className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-500 z-10 border-2 ${
-                step >= i
+                step >= i + 1
                   ? "bg-[#ADFA1D] text-black border-[#ADFA1D] shadow-[0_0_20px_rgba(173,250,29,0.4)]"
                   : "bg-neutral-900 text-neutral-500 border-neutral-800"
               }`}
@@ -17,7 +18,7 @@ export default function ProgressBar({ step }: { step: number }) {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
-              {step > i ? (
+              {step > i + 1 ? (
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
@@ -26,7 +27,7 @@ export default function ProgressBar({ step }: { step: number }) {
                   ✓
                 </motion.div>
               ) : (
-                i
+                i + 1
               )}
             </motion.div>
             {i < 4 && (

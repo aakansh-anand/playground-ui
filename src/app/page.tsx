@@ -1,16 +1,9 @@
-"use client";
-import { ModeToggle } from "@/components/theme/mode-toggle";
-// import CardsPlay from "./_blocks/cards-play";
-// import TypingText from "./_blocks/typing-text";
-import TurfOnboarding from "@/components/onboarding/onboarding";
+import { Bracket } from "@/components/Fixtures/Bracket";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="min-h-dvh px-4">
-      <ModeToggle />
-      <div className="max-w-md mx-auto">
-        <TurfOnboarding />
-      </div>
-    </div>
+    <main className="min-h-screen bg-background">
+      <Bracket />
+    </main>
   );
 }
